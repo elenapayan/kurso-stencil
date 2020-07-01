@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'button-more',
@@ -8,11 +8,16 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 export class ButtonMore implements ComponentInterface {
 
   @Prop() text: string;
+  @Event() clickPost: EventEmitter;
+
+  onTap() {
+    this.clickPost.emit();
+  }
 
   render() {
     return (
       <div>
-        <button>{this.text}
+        <button onClick={() => this.onTap()}>{this.text}
           <slot name="icon" />
         </button>
       </div>

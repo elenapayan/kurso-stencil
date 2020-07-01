@@ -104,6 +104,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ButtonMore {
+        "onClickPost"?: (event: CustomEvent<any>) => void;
         "text"?: string;
     }
     interface GkHoly {
